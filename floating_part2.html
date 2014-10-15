@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>groket - Floating Part II</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="includeNav"></div>
+
+    <div class="container">
+      <h1 class="text-center">Floating Part II</h1>
+
+      <h2>Clearing Past Floats</h2>
+
+      <p>There are cases where you may not want an element to wrap next to a
+      floated element. In these cases you will want to clear the element past
+      the floated element. The <em>clear</em> property by default has the value
+      of <em>none</em>, but can also have the values of <em>left</em>,
+      <em>right</em>, and <em>both</em> to clear an element past a floated
+      left, floated right or both left and right floated elements respectively.
+      Let&#39;s look at an example:</p>
+
+      <figure>
+        <a class="jsbin-embed" href=
+        "http://jsbin.com/waxax/1/embed?html,css,output">Clearing
+        Floats</a><script src="http://static.jsbin.com/js/embed.js">
+</script>
+      </figure>
+
+      <h3>Take Note:</h3>
+
+      <ul class="notes">
+        <li>The clear is placed on the header element that we don&#39;t want to
+        wrapping around the floated image.</li>
+
+        <li>Since the image was floated left, a value of left was applied to
+        the clear property for the H2 element.</li>
+      </ul>
+
+      <h3>Things to try:</h3>
+
+      <ul class="exercises">
+        <li>Change the clear value from left to right and notice that the
+        header is no longer cleared.</li>
+
+        <li>Copy the image code, paste it below the first paragraph, add a
+        class of <em>side2</em> and give the <em>float</em> property a value of
+        <em>right</em> for this class.</li>
+
+        <li>Change the clear value from right to both. Now the header is
+        cleared past both left and right floats.</li>
+      </ul>
+
+      <h2>Creating Menus with Floats</h2>
+
+      <p>The unordered list is semantically the best choice to create a
+      navigation menu. Using CSS you can remove the default bullets next to
+      each list item, float the list items to the left or right and apply
+      additional styles to achieve a nice navigation menu. Let&#39;s look at an
+      example.</p>
+
+      <figure>
+        <a class="jsbin-embed" href=
+        "http://jsbin.com/hegal/1/embed?html,css,output">Creating Menus with
+        Floats</a><script src="http://static.jsbin.com/js/embed.js">
+</script>
+      </figure>
+
+      <h3>Take Note:</h3>
+
+      <ul class="notes">
+        <li>The html5 nav tag is used to surround the unordered list. For
+        semantic correctness, the nav tag should be used anytime you are
+        creating a navigation menu.</li>
+
+        <li>The list-style-type property for the ul is set to none. This
+        removes the bullets from the list items.</li>
+
+        <li>Each list item is given a float value of left. This allows each
+        list item to sit side-by-side for a horizontal style menu.</li>
+
+        <li>A clear left is added to the paragraph to prevent it from wrapping
+        around the menu.</li>
+
+        <li>Additional styling has been added to the anchor tags.</li>
+      </ul>
+
+      <h3>Things to try:</h3>
+
+      <ul class="exercises">
+        <li>Remove the float declaration to see the list items stack vertically
+        by default.</li>
+
+        <li>Change the float value from left to right. You may need to expand
+        the output window area to see the effect.</li>
+
+        <li>The paragraph will no longer be cleared with the last change.
+        Change the clear value to right to clear the paragraph past the
+        float.</li>
+
+        <li>Add some additional menu items and styling.</li>
+      </ul>
+
+      <h2>Containing Floated Elements</h2>
+
+      <p>When you float an element, it is being taken out of the normal flow of
+      the page. This can have unwanted effects, especially when you have
+      floated elements within a container element. Let&#39;s look at an
+      example.</p>
+
+      <figure>
+        <a class="jsbin-embed" href=
+        "http://jsbin.com/subupu/1/embed?html,css,output">Containing Floated
+        Elements</a><script src="http://static.jsbin.com/js/embed.js">
+</script>
+      </figure>
+
+      <h3>Take Note:</h3>
+
+      <ul class="notes">
+        <li>The floated cat image in the div with class container1 sticks
+        outside of the div. This is not the behavior that would normally be
+        desired.</li>
+
+        <li>The floated cat image in the div with class container2 is
+        contained, which is the effect that is normally desired. This can be
+        achieved by setting the overflow to auto, hidden or scroll.</li>
+
+        <li>Some browsers may need a height or width set for the container
+        div.</li>
+      </ul>
+
+      <h3>Things to try:</h3>
+
+      <ul class="exercises">
+        <li>Set the overflow property to <em>auto</em> for the div with class
+        container1. This will contain the image within the div.</li>
+
+        <li>Remove the overflow declaration for both containers.</li>
+
+        <li>Remove the clear declaration from the HR tag. This leaves us with
+        the default behavior when floats are applied within a container.</li>
+
+        <li>Remove the float declaration on the img tag to show that the images
+        are contained when not floated.</li>
+      </ul>
+
+      <h2>Floats for layouts</h2>
+
+      <p>Floating elements at one time was the only option to accomplish
+      various types of layouts, but with CSS 2.1 and later specifications other
+      options were made available that are considered to be improvements over
+      floats. Let&#39;s look at how we can create a navigation menu without
+      floats by using the inline-block display property</p>
+
+      <figure>
+        <a class="jsbin-embed" href=
+        "http://jsbin.com/sonol/1/embed?html,css,output">Inline-block Nav
+        Menu</a><script src="http://static.jsbin.com/js/embed.js">
+</script>
+      </figure>
+
+      <h3>Take Note:</h3>
+
+      <ul class="notes">
+        <li>A horizontal menu is achieved by using the inline-block for the
+        display value for the list items.</li>
+
+        <li>A clear declaration is not needed on the paragraph that follows,
+        since a float value is never used.</li>
+      </ul>
+
+      <h3>Things to try:</h3>
+
+      <ul class="exercises">
+        <li>Align the menu right by declaring a width of 300px, a margin-left
+        of auto and a margin-right of 0 for the nav element. Revert your
+        changes.</li>
+
+        <li>Center align the menu by declaring margin-left and margin-right to
+        have a value of auto for the nav element.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="includeFooter"></div><script src="js/prism.js"
+  data-default-language="markup">
+</script> <script src="js/jquery.js">
+</script> <script src="js/includes.js">
+</script> <script src="js/bootstrap.min.js">
+</script>
+</body>
+</html>

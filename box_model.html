@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>groket - Box Model</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="includeNav"></div>
+        <div class="container">
+            <h1 class="text-center">Box Model</h1>
+            <h2>The Basics</h2>
+	    <p>In the <a href="layout_html_overview.html">HTML Overview</a> we
+	    saw that every HTML element exists within a rectangle or box on a
+	    page. This box has the properties of width, min-width, max-width, height,
+	    min-height, max-height, padding, border and margin that can be
+	    applied and modified. Understanding the <em>box model</em>, as it
+	    is known, is essential to creating layouts that
+	    reflect your design. Below we have a basic illustration of the
+	    <em>box model</em> which we'll discuss in detail in this
+	    lesson.</p>
+            <figure>
+                <div class="text-center box-area margin-area">
+                    <p>Margin Area (optional)</p>
+                    <div class="box-area border-area">
+                        <p>Border Area (optional)</p>
+                        <div class="box-area padding-area">
+                            <p>Padding Area (optional)</p>
+                            <div class="box-area content-area">
+                                <p>Content Area</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		<figcaption class="text-center">CSS Box Model Illustration</figcaption>
+            </figure>
+            <div class="row text-center">
+                <div class="col-sm-3 col-sm-offset-4">
+                    <hr class="margin-area"> Margin Edge
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-sm-3 col-sm-offset-4">
+                    <hr class="border-area"> Border Edge
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-sm-3 col-sm-offset-4">
+                    <hr class="padding-area"> Padding Edge
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-sm-3 col-sm-offset-4">
+                    <hr class="content-area"> Content Edge
+                </div>
+            </div>
+            <h3>Width and Height</h3>
+	    <p>The width and height properties, by default, control the width
+	    and height of the content area. The default value for the width
+	    and height properties is set to auto, which allows the browser to
+	    calculate and select a width/height for the element. Length values for
+	    width and height followed by a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#Units">unit</a> (e.g. em, px, rem) can be used
+	    to provide an exact size of the content area. Percentage values
+	    can also be used so that the width/height will fill the specified
+	    percentage of the containing block's width/height.</p> 
+	    <p>The min-width and min-height is used to ensure a minimum
+	    width/height of an element and overrides the width/height value.
+	    The max-width and max-height are similar, but control the maximum
+	    width/height and also override the width/height value. Setting the
+	    min-width/height (max-width/height) is often used for cases
+	    when a browser is resized and you want to ensure the content area
+	    is no smaller (larger) than a particular size.</p>
+	    <p>The width and height properties can be set to be inclusive of
+	    the padding and border using the <a
+	    href="#BoxSizing">box-sizing</a> property.</p>
+            <h3>Content Area and Edge</h3>
+	    <p>The content area contains the actual content - text, image,
+	    etc. You can specify the width and height of the content area for
+		    block-level elements and <a
+			    href="https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element">replaced
+			    inline elements</a> (e.g. images) using CSS, but
+		    you cannot specify the width and height for non-replaced
+		    elements (e.g. span, strong, em, etc.).  </p>
+	    <p>The content edge is not actually a visible edge as illustrated
+	    above, but it represents the outer edge of the content area and
+	    the inner padding edge, if any padding exists.</p> <h3>Padding
+	    Area and Edge</h3> 
+	    <p>The padding is an optional area between the content and an
+	    optional border. Padding is often used to provide "breathing room"
+	    between the content and the border for readability and aesthetics.
+	    </p>
+	    <p>The padding edge is not actually visible as illustrated above,
+	    but it represents the outer edge of the padding area and the inner
+	    edge of the border.</p> <p>Padding can be specified using CSS
+	    declarations for each individual side using
+                <strong>padding-top</strong>, <strong>padding-right</strong>,
+                <strong>padding-bottom</strong>, and
+                <strong>padding-left</strong>.</p>
+                <pre><code class="language-css">padding-top: 10px;
+padding-right: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+</code></pre>
+            <h4 id="PaddingShorthand">Shorthand for Padding Declarations</h4>
+            <p>The previous four declarations can also be written with the following short-hand notation.</p>
+            <pre><code class="language-css">padding: 10px;</code></pre>
+            <p>
+		This is the shorthand notation when all the sides have the
+		same padding value. What if you have different values? The
+		shorthand still works, you just need to specify enough
+		information.  </p>
+	    <p>Before looking at the other shorthand notation syntax, you
+	    should remember the following: <em>Start at the Top and move like
+	    a clock</em>. What does this mean? It's hopefully an easy way to
+    remember the order in which the sides are specified for padding shorthand
+    notation. You specify the padding in clockwise order: <em>top</em>,
+                <em>right</em>, <em>bottom</em> and <em>left</em>.
+            </p>
+            <p>Shorthand for all four sides having different padding values.</p>
+            <div class="syntax">
+	      padding: top right bottom left;
+            </div>
+	    <pre><code class="language-css">padding: 20px 10px 30px 15px;</code></pre>
+	    <p>Shorthand for the left and right sides being the same and the
+	    top and bottom values being different. Note the ordering is still
+	    clockwise, but the value for the right also specifies the left
+	    value when using the three value shorthand notation.</p> 
+	    <div class="syntax">
+                padding: top right/left bottom;
+            </div>
+	    <pre><code class="language-css">padding: 20px 10px 15px;</code></pre>
+	    <p>Shorthand for the top and bottom having one value and the right
+	    and left sides having another value.</p> 
+	    <div class="syntax">padding: top/bottom right/left;</div>
+	    <pre><code class="language-css">padding: 20px 10px;</code></pre>
+            <h3>Border Area and Edge</h3>
+	    <p>The border is another optional area between the optional
+	    padding and margin areas. The border properties width, style, and
+	    color can be modified, and each side can have a different border
+	    or no border.</p> <p>The border edge is not actually visible as
+	    illustrated, but represents the outer edge of the border, if it
+	    exists, and the inner edge of the optional margin.</p>
+	    <p>A solid black border with a width of 2 pixels would be specified as follows:
+            </p>
+	    <pre><code class="language-css">border-width: 2px;<br>
+style: solid;<br>
+color: black;</code></pre>
+	    <p>There is also shorthand notation for specifying the border:</p>
+	    <div class="syntax">
+	        border: border-width border-style border-color;
+	    </div>
+	    <pre><code class="language-css">border: 2px solid black;</code></pre>
+	    <p>Each side can have its own width, style and color specified
+	    using the following syntax.</p>
+	    <div class="syntax">
+	      border-&lt;side&gt;-width: border-width;
+	    </div>
+	    <div class="syntax">
+	      border-&lt;side&gt;-style: border-style;
+	    </div>
+	    <div class="syntax">
+	      border-&lt;side&gt;-color: border-color;
+	    </div>
+	    <p>Where &lt;side&gt; would be replaced by <em>top</em>, <em>right</em>, <em>bottom</em>
+	    or <em>left</em>.</p>
+	    <p>Valid values for the properties:
+	    <a
+		    href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-width#Values">border-width</a>,
+	    <a
+		    href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-style#Values">border-style</a>
+	    and
+	    <a
+		    href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-color#Syntax">border-color</a>.</p>
+	    <h3>Margin Area and Outer Edge</h3>
+	    <p>The margin is an optional area between the optional border and
+	    other elements. Margins are what keep elements from "bumping" into
+	    one another and are always transparent so that the parent
+	    element's background will show through the margin.</p>
+	    <p>The outer margin edge is not actually visible as depicted in the Box
+	    Model illustration, but it represents the outer rectangular perimeter of
+	    the element on the page. Any area outside of the outer edge would
+	    belong to another element.</p>
+	    <p>Margins can be specified using CSS declarations for each
+	    individual side much like padding, <strong>margin-top</strong>,
+	    <strong>margin-right</strong>, <strong>margin-bottom</strong>,
+	    <strong>margin-left</strong>.</p>
+	    <pre><code class="language-css">margin-top: 10px;<br>
+margin-right: 10px;<br>
+margin-bottom: 10px;<br>
+margin-left: 10px;<br>
+</code></pre>
+	    <p>The shorthand notation for margins follows the same <a
+		    href="#PaddingShorthand">
+notation
+	    as padding</a>, but in place of <em>padding</em> in the declarations, you use <em>margin</em>.</p>
+	    <p>Let's look at an example that uses the box model's optional
+	    padding, border, and margin areas.
+            </p>
+            <figure>
+	      <a class="jsbin-embed"
+		     href="http://jsbin.com/jadoze/3/embed?html,css,output">
+		     Box Model Basics
+	      </a>
+              <script src="http://static.jsbin.com/js/embed.js"></script> 
+            </figure>
+            <h3>Take Note:</h3>
+            <ul class="notes">
+		<li>Note that the paragraph element is left aligned. This is
+		the default behavior for elements.</li>
+		<li>The padding on the paragraph pushes the content area
+		containing text away from the paragraph element's border.</li>
+                <li>The margin on the paragraph pushes the paragraph element
+		away from the padding of the div.</li>
+            </ul>
+            <h3>Things to try:</h3>
+            <ul class="exercises">
+                <li>Change the border's style to dashed and the color to red.</li>
+                <li>Remove the padding on the div container. Note anything
+		that appears odd. We will discuss this behavior in the next
+		section <em>Collapsing Margins</em></li>
+		<li>Modify the padding and margins of the div and paragraph
+		elements. Note anything that may seem odd.</li>
+            </ul>
+            <h2>Collapsing Margins</h2>
+	    <p>In the previous <em>Things to try</em>, when the padding was
+	    removed from the div container we could see the light blue
+	    background color of the body above the outer edge of the div and
+	    paragraph. This is the result of collapsing margins.
+	    In the <a
+		    href="http://www.w3.org/TR/CSS2/box.html#collapsing-margins">CSS
+	    2.1 specification</a>
+	    , top and bottom margins of adjacent and also parent/child
+	    block-level elements sometimes combine (collapse) into a single
+	    margin that will have the size of
+	    the larger of the two collapsed margins. </p>
+	    <p>Here's the quick summary for collapsing margins.</p>
+	    <ul class="summary">
+	    	<li>Horizontal margins never collapse.</li>
+	    	<li>The vertical margins of adjacent siblings will collapse, unless
+		a later sibling needs to be cleared (discussed in Float
+		section).</li>
+		<li>The top margin of the first child element and the bottom margin of
+		the last child element (for a single child element, the
+		first and last are the same) will collapse with the parent
+		element's margin except when a border, padding, inline content, or
+		clearing (discussed in Float lesson) separates the two
+		margins. The collapsed margin will exist outside of the parent element.</li>
+		<li>If there is nothing (border, padding, inline content or
+		height) to separate a block element's top and bottom margin,
+		the margins will collapse. This is the case of empty blocks,
+		which are not as common as the previous two cases.</li>
+	    </ul>
+	    <p>It is the third case that was being exhibited when the padding
+	    was removed from the div container in the previous example. The
+	    top and bottom margins collapsed and the single collapsed margin
+	    became 10px (in this case the margin on the div was 0). The reason
+	    the background color of the body was visible, is that the
+	    collapsed margin exists outside of the parent element (the div).</p>
+	    <p>Let's look at an example that illustrates the case of sibling
+	    vertical margins collapsing.</p>
+	    <figure>
+	    <a class="jsbin-embed" href="http://jsbin.com/qoxipa/1/embed?html,css,output">Collapsing Margins</a><script src="http://static.jsbin.com/js/embed.js"></script>
+	    </figure>
+            <h3>Take Note:</h3>
+            <ul class="notes">
+		<li><em>auto</em> is used to preserve the default left and right margins.</li>
+            </ul>
+            <h3>Things to try:</h3>
+            <ul class="exercises">
+                <li>Change the paragraph's top and bottom margin from 20px to
+		40px. You should notice that the margin between the two paragraphs
+		does not change because of the collapsing margin behavior. Any
+		value less than or equal to 40px will not reflect a change of
+		the margin between the two paragraphs, but the top margin of
+		the first paragraph will match the specified value.
+		</li>
+                <li>Change the paragraph's top and bottom margin to 50px and
+		notice that the margin between the two paragraphs increases
+		(in this case 10 pixels).</li>
+		<li>Add additional paragraphs adjust
+		the margins until you feel like you "grok it".</li>
+            </ul>
+            <h2 id="BoxSizing">Width and Height Calculations and Box-sizing</h2>
+	    <p>In creating a website, you will often need to know the width
+	    and height that an element will occupy on a page to achieve a
+	    desired layout. The default width and height that an element will
+	    occupy on a page is calculated by the following: </p>
+	    <p class="equation">element width = left margin + left border +
+	    left padding + width + right padding + right border + right
+	    margin</p>
+	    <p class="equation">element height = top margin + top border +
+	    top padding + height + bottom padding + bottom border + bottom
+	    margin</p>
+	    <p>
+	    Often the padding will be added or modified once a layout is
+	    defined and text is added. This will usually require adjustments
+	    to the width and height, since the width and height, by default,
+	    does not include padding.
+	    The CSS3 UI specification addresses this issue with the <a
+		    href="http://dev.w3.org/csswg/css-ui/#box-sizing">
+		    box-sizing
+	    property</a>.
+            The box-sizing property allows for the width to include only the content
+	    area, the default, or for the width to also include padding or for
+	    the width to also include padding and the border.</p>
+	    <table class="table table-hover table-condensed">
+		    <colgroup>
+		    <col span="1" style="width: 20%">
+		    <col span="1" style="width: 80%">
+		    </colgroup>
+		    <tr>
+		    	<th>box-sizing value</th>
+		    	<th class="text-center">Description</th>
+		    </tr>
+		    <tr>
+		    	<td>content-box</td>
+		    	<td>The width and height only account for the content
+			area. Any padding, border or margin has to be
+			accounted separately when default terming the space that
+			is occupied by an element. This is the default value.
+	                </td> 
+                    </tr>
+		    <tr>
+		    	<td>padding-box</td>
+		    	<td>The width and height include the content area and
+			the padding, but does not include the border or
+			margin. This value has limited very limited browser
+			support.</td>
+		    </tr>
+		    <tr>
+		    	<td>border-box</td>
+		    	<td>The width and height include the content area, the
+			padding and the border, but does not include the
+			margin. This value has wide support with modern
+			browsers.</td>
+		    </tr>
+	    </table>
+	    <p>Let's look at an example where we can see and experiment with
+	    using the default content-box value and the widely supported
+	    border-box value for the box-sizing property.</p>
+	    <figure>
+	       <a class="jsbin-embed" href="http://jsbin.com/quwomu/1/embed?html,css,output">Box-sizing</a>
+	    <script src="http://static.jsbin.com/js/embed.js"></script>
+	    <figcaption>Class names are not semantic and in general a
+	    single box-sizing value would be applied to all elements.</figcaption>
+	    </figure>
+            <h3>Take Note:</h3>
+            <ul class="notes">
+		<li>Note that two paragraphs have the content-box value
+		applied and two paragraphs have the border-box value applied
+		for the box-sizing property.</li>
+		<li>All paragraphs have the same border, padding and margin
+		applied so that each paragraph element (including margin) will
+		occupy 132px in width.</li> <li>The width has been set for the
+		content-box 
+		paragraphs and the border-box paragraphs so that two
+		paragraphs can fit exactly side-by-side within a 264px div.</li>
+            </ul>
+            <h3>Things to try:</h3>
+            <ul class="exercises">
+                <li>Change the border from 1px to
+		2px. Note that the border-box paragraphs handle this change so
+		that the paragraphs continue to sit side-by-side. The
+		content-box paragraph are now too wide for the div and cannot
+		sit side-by-side. Revert your changes.</li>
+                <li>Change the padding from 10px to 15px. Again, the
+		border-box paragraphs accommodate this change but the
+		content-box paragraphs are once again too wide to sit
+		side-by-side. Revert your changes.</li>
+		<li>Change the margin from 5px to 6px. Neither the content-box
+		or border-box paragraphs can accommodate this change since
+		neither take the margin into account when calculating the
+		width. While it is not as common to modify the margin as padding
+		and borders, it's important to know that margin is not
+		accounted for in the width of border-box elements.</li>
+            </ul>
+	    <p>As experienced in the previous <em>Things to try</em>, it is often
+	    easier to work with the box-sizing property set to border-box than
+	    content-box. The current <a href="http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/">best practice</a> for applying box-border to
+	    all elements is provided below.</p>
+	    <pre><code class="language-css">html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}</code></pre>
+	    <h2>Overflow</h2>
+	    <p>Sometimes the content of an element will be too large for the
+	    specified content area size. So, what happens to the content? Is it chopped
+	    off? Does it "overflow" outside of the element? Do you get
+	    scrollbars? The answer depends on the value that is set for the
+	    overflow property.</p>
+	    <p>Let's look at an example that illustrates the behavior of the
+	    overflow property with its four possible values: visible, hidden,
+	    scroll and auto.</p>
+            <figure>
+	   <a class="jsbin-embed" href="http://jsbin.com/kegasu/4/embed?html,css,output">Overflow</a><script src="http://static.jsbin.com/js/embed.js"></script> 
+	    </figure>
+	    <h3>Take Note:</h3>
+	    <p>The following table summarizes the four overflow values.</p>
+	    <table class="table table-hover table-condensed">
+		    <colgroup>
+		    <col span="1" style="width: 20%">
+		    <col span="1" style="width: 80%">
+		    </colgroup>
+		    <tr>
+		    	<th>Overflow Value</th>
+		    	<th class="text-center">Description</th>
+		    </tr>
+		    <tr>
+		    	<td>visible</td>
+		    	<td>Allows for the content to visibly overflow outside
+			of the element. This is the default value.</td> 
+                    </tr>
+		    <tr>
+		    	<td>hidden</td>
+		    	<td>Any content that does not fit within the content
+				area will be clipped.</td>
+		    </tr>
+		    <tr>
+		    	<td>scroll</td>
+			<td>Scrollbars are added to allow the user to scroll
+				through the content. The scrollbars will be
+			present even if the content fits within the content
+		area.</td>
+		    </tr>
+		    <tr>
+		    	<td>auto</td>
+			<td>The browser handles overflow where scrollbars will
+				usually be added if the content is larger than
+			the content area.</td>
+		    </tr>
+	    </table>
+	    <p>Which value you set for the overflow property will depend on
+	    several factors: the type of content within the element, the
+	    adjacent content, the layout, containing elements etc. This lesson
+	    will not explore when to use which values, but you can do a web
+	    search and find recommendations for setting the overflow property.
+	    </p>
+            <h2>Big Ideas</h2>
+            <ul class="big-ideas">
+                <li>Every element on a web page is contained within a "box"
+		that has a height, width, optional padding, optional border
+		and optional margin that can be modified using CSS.</li>
+                <li>Vertical margins can sometimes collapse, but horizontal
+		margins never collapse.</li>
+		<li>The box-sizing property, by default is set to content-box,
+		which specifies that the height and width property will only
+		account for the content area. If the value is set to border-box,
+		then any padding and border will also be included in the
+		height and width.</li>
+                <li>The overflow property can be used to specify what happens
+		to the content when it is too large for the content area.</li>
+            </ul>
+
+
+        </div>
+    </div>
+    <div id="includeFooter"></div>
+    <script src="js/prism.js" data-default-language="markup"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/includes.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

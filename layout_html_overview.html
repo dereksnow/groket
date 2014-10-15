@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>groket - Overview of HTML and Layouts</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="includeNav"></div>
+        <div class="container">
+            <h1 class="text-center">HTML and Layouts</h1>
+	    <p>HTML's role with regard to page layout is not as significant as
+	    it was before CSS was introduced, but there are still some
+		    important concepts to understand. The first is that
+			    <strong> every HTML
+	    element that appears on a web page is contained within a rectangle
+	    or box</strong>.</p>
+            </p>Below are two elements that you will find on many web pages: an image and some pre-formatted text.</p>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="images/soccerball.jpg" alt="Soccer Ball">
+                </div>
+                <div class="col-md-9">
+                    <pre>
+                       Lorem ipsum dolor sit amet, consectetur adipiscing
+			    Cras volutpat tempor ligula eget elementum.
+		               Quisque eu aliquam elit suscipit 
+                                  urna elit, sollicitudin non
+                                     consectetur dui ut 
+                                        tellus ornare, 
+		                          eu ultrices 
+		                             nisl 
+		    </pre>
+                </div>
+            </div>
+            <div class="row">
+		<p>If we add borders to each of the elements, you can easily
+		see the rectangular space that the elements occupy on the
+			page. You can also inspect each of these elements
+				using browser development tools to see the
+					area occupied.</p> <div
+						class="col-md-3">
+                    <img class="box" src="images/soccerball.jpg" alt="Soccer Ball">
+                </div>
+                <div class="col-md-9">
+                    <pre class="box">
+                       Lorem ipsum dolor sit amet, consectetur adipiscing
+			    Cras volutpat tempor ligula eget elementum.
+		               Quisque eu aliquam elit suscipit 
+                                  urna elit, sollicitudin non
+                                     consectetur dui ut 
+                                        tellus ornare, 
+		                          eu ultrices 
+		                             nisl 
+		    </pre>
+                </div>
+            </div>
+            <div class="row">
+		<p>Understanding that all elements on a page occupy a certain
+		rectangular size is fundamental to understanding layouts. One
+		of the other important concepts is that certain types of
+		elements will begin on new lines by default (occupying the
+		width of their container) while other types of elements don't start on a
+		new line and only take up the width of their contents. These
+			are known as <a href="block_elements.html">block-level</a> and inline elements respectively and
+		will be the next topics discussed.</p>
+            </div>
+        </div>
+    </div>
+    <div id="includeFooter"></div>
+    <script src="js/jquery.js"></script>
+    <script src="js/includes.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

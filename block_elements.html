@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>groket - Block Elements</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="includeNav"></div>
+        <div class="container">
+            <h1 class="text-center">Block-level Elements</h1>
+            <h2>The Basics</h2>
+            <p><strong>Block-level elements are HTML elements that are laid out
+		    vertically on top of one another.</strong> These elements
+	    typically have a line break before and after the element and occupy
+	    the width of the containing element. Some commonly used block-level
+	    elements include paragraphs (like this one), headings, list items
+	    and tables.</p>
+	    <p>Below is a code example containing elements that are block-level
+	    by default: a paragraph, an unordered list and a table.</p>
+		    <figure>
+                <a class="jsbin-embed" href="http://jsbin.com/cuduq/2/embed?html,output">Basic
+		Block-level elements</a>
+                <script src="http://static.jsbin.com/js/embed.js"></script>
+                <figcaption>
+		    Background color styling has been added to show the area
+		    that each block-level element occupies on the page. Also,
+		    the default margins set by the browser has been reset to 0.
+		    </figcaption>
+            </figure>
+            <h3>Take Note:</h3>
+            <ul class="notes">
+		<li>Each block-level element vertically stacks on top of the
+		other (like stacking blocks).</li> 
+		<li>The width of a table
+		element does not occupy the width of the containing element
+		like the paragraph or the list. The W3C specification states
+		that the width of a table element is determined by the user
+		agent (e.g. browser), which is usually
+                    the sum of the widths of the columns.
+		</li>
+            </ul>
+            <h3>Things to try:</h3>
+            <ul class="exercises">
+                <li>Add/Remove block-level elements to the jsbin above.</li>
+                <li>Resize the area allocated to the output. How do the content change?</li>
+            </ul>
+            <h2>The DIV element and Nesting</h2>
+            <p><strong>The &lt;div&gt; element is a block-level container
+		    without any semantics, other than those that you apply with
+	    id or class attributes.</strong> It is frequently used to style a group of flow content elements and create sectioned layouts, but it should not be used when a semantic element (e.g. nav, article, aside, header, footer etc) would be better suited
+                for the content. <a href="http://html5doctor.com/downloads/h5d-sectioning-flowchart.png">Here's
+a great flow chart</a> from
+                <a href="http://html5doctor.com/">HTML5Doctor</a>that can help you decide which element you should use for a block of content.</p>
+            <p>
+                Another important characteristic of <strong>block-level
+			elements</strong> is that they <strong>can generally
+		have other block-level and <a
+	href="inline_elements.html">inline elements</a> nested (contained)
+within them</strong>. This nesting is often used to create interesting grid layouts. In the jsbin below, block-level elements are nested inside of other block-level elements to achieve a simple two column layout. The CSS used to achieve this particular
+                layout will be discussed in a later section, but the HTML code shows the structure of this layout.</p>
+            <figure> <a class="jsbin-embed" href="http://jsbin.com/favava/3/embed?html,output">DIVs and Nesting</a>
+                <script src="http://static.jsbin.com/js/embed.js"></script>
+                <figcaption>Background color styling has been added to some of the &lt;div&gt; elements to show the area occupied on the page. The div with class container is partially occluded by the inner divs.</figcaption>
+            </figure>
+            <h3>Take Note:</h3>
+            <ul class="notes">
+                <li>A &lt;p&gt; element is nested within a &lt;div&gt; element, which is nested within another &lt;div&gt; element. This nesting is a common technique for achieving grid/column layouts.</li>
+                <li><strong>A &lt;p&gt; element cannot contain block-level elements</strong>, but it can contain <a href="inline_elements.html">inline elements</a>.</li>
+            </ul>
+            <h3>Things to try:</h3>
+            <ul class="exercises">
+                <li>Try adding a paragraph element inside of an existing paragraph element. What appears to happen? Revert your changes.</li>
+                <li>Comment out the background color declarations for the two inner divs to reveal the background color of the container div. Revert your changes.</li>
+                <li>Remove the <em>float: left;</em> declaration in the CSS tab. What happens? What do you think the float declaration is doing? Add the float declaration back, but change the value <em>left</em> to <em>right</em>. What happened? Float will be
+                    covered in more detail in a later section.</li>
+                <li>See if you can add two more divs to make a four column layout. You will need to make adjustments to the HTML and the CSS. This may be a small challenge, but if you look at the CSS, you can probably figure it out. The concepts to make this
+                    type of layout will be covered in more detail in the CSS section.</li>
+            </ul>
+            <h2>HTML5 and Block-level Elements</h2>
+	    <p>In HTML5 <a
+		    href="http://www.whatwg.org/specs/web-apps/current-work/multipage/indices.html#element-content-categories">element
+	    content categories</a> were introduced, which replaced the simple
+    block-level and inline distinction, but the block-level/inline
+    categorization is still used in discussing the default behavior of
+    elements. Mozilla provides a <a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">listing
+of block-level elements</a> that also includes HTML5
+                elements that are technically not defined within the block-level/inline categorization.</p>
+            <h2>Big Ideas</h2>
+            <ul class="big-ideas">
+                <li>Block-level elements are laid out vertically on top of one another.</li>
+                <li>The div element is a block-level element without semantics often used to create grid layouts.</li>
+                <li>The div element should only be used when a semantic element wouldn't be better suited.</li>
+                <li>Block-level elements can generally have other block-level and inline elements nested within them.</li>
+                <li>The paragraph element cannot nest other block-level elements within it.</li>
+                <li>HTML5 introduced element content categories which replaced the block-level/inline categorization, but the block-level and inline behavior of elements persists.</li>
+            </ul>
+
+        </div>
+    </div>
+    <div id="includeFooter"></div>
+    <script src="js/jquery.js"></script>
+    <script src="js/includes.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

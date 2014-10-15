@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>groket - Floating Part I</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="includeNav"></div>
+
+    <div class="container">
+      <h1 class="text-center">Floating Part I</h1>
+
+      <h2>Normal Flow</h2>
+
+      <p>The CSS layout model specifies that elements are laid out from top to
+      bottom and from left to right by default. This is what we call the
+      <strong>normal flow</strong> of elements. Let&#39;s take a closer look at
+      an example that shows the normal layout of elements.</p>
+
+      <figure>
+        <a class="jsbin-embed" href=
+        "http://jsbin.com/tosuka/4/embed?html,css,output">Normal
+        Flow</a><script src="http://static.jsbin.com/js/embed.js">
+</script>
+
+        <figcaption class="text-center"></figcaption>
+      </figure>
+
+      <h3>Take Note:</h3>
+
+      <ul class="notes">
+        <li>Block and inline elements are laid out top to bottom and from left
+        to right. The block elements (divs) by default occupy the width of the
+        containing element. The inline elements (two imgs and a span) sit
+        adjacent to each other and wrap to the next line only when the width of
+        the <em>container</em> div is exceeded.</li>
+
+        <li>Each div within the container div has been given a height and a
+        width.</li>
+
+        <li>There is a space between the images and the div below it. The
+        images sit on the same baseline as the text. The leg of the letter
+        &quot;p&quot; in &quot;Span&quot; sits below the baseline. This space
+        for descenders will exist by default even if there isn&#39;t a letter
+        that has a descender.</li>
+      </ul>
+
+      <h3>Things to try:</h3>
+
+      <ul class="exercises">
+        <li>Remove the letter &quot;p&quot; in &quot;Span&quot; to show that
+        the space between the images and the div below it is maintained. This
+        space can be removed by changing the vertical-align (default is
+        baseline) property of the image to <em>top</em> (<a href=
+        "http://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align">other
+        values</a> will also work).
+        </li>
+
+        <li>Change the <em>container</em> div width to 100px and notice how the
+        images and text wrap.</li>
+
+        <li>Add or remove block and inline elements to see how they are laid
+        out with normal flow.</li>
+      </ul>
+
+      <h2>Floating</h2>
+
+      <p>The rest of this lesson will look at how we can take elements out of
+      the normal flow of a page using the float property. Elements are not
+      floated by default, but when the value of <em>left</em> or <em>right</em>
+      is assigned to the float property, the element is moved as far left or
+      right as possible. This allows any line boxes that comes after the
+      floated element to wrap around it. A line box is the rectangular area
+      that contains the boxes that form a line. Let&#39;s look at an example
+      that illustrates these concepts and the basics of a floated element.</p>
+
+      <figure>
+        <a class="jsbin-embed" href=
+        "http://jsbin.com/qadoda/10/embed?html,css,output">Basic
+        Floating</a><script src="http://static.jsbin.com/js/embed.js">
+</script>
+      </figure>
+
+      <h3>Take Note:</h3>
+
+      <ul class="notes">
+        <li>The image is the only element that has a non-default float value,
+        in this case <em>left</em>. Since the image is floated, it is initially
+        positioned within the normal flow, but then taken out of the flow and
+        shifted left as far as possible.</li>
+
+        <li>Since the image is outside of the normal flow, the &quot;box&quot;
+        for the paragraph and div are placed normally.</li>
+
+        <li>The paragraph has a purple border and fills the width of the
+        containing element, even though the left most edge is hidden by the
+        image.</li>
+
+        <li>The line box that surrounds the text within the paragraph and div
+        with a blue background has a red dotted border. These line boxes always
+        exist but cannot been seen without attaching span with a border. Notice
+        that the line box is affected by the floated image and wraps around the
+        image, unlike the paragraph block with the purple border or the
+        div.</li>
+      </ul>
+
+      <h3>Things to try:</h3>
+
+      <ul class="exercises">
+        <li>Change the float for the image from left to right and notice the
+        changes. Revert your changes.</li>
+
+        <li>Add a margin to the img tag of 10px to reveal the left border of
+        the paragraph.</li>
+
+        <li>Remove the image and notice how the line boxes wrap to fill the
+        containing space.</li>
+      </ul>
+
+      <h2>Inline Text Floated</h2>
+
+      <p>Floating inline text is performed in the same basic way as we did the
+      image, but a width should always be specified. A width is needed since
+      most browsers will have the text fill the width of the containing element
+      by default. Let&#39;s take a look at an example of floating text.</p>
+
+      <figure>
+        <a class="jsbin-embed" href=
+        "http://jsbin.com/fozaba/1/embed?html,css,output">Floating
+        Text</a><script src="http://static.jsbin.com/js/embed.js">
+</script>
+      </figure>
+
+      <h3>Take Note:</h3>
+
+      <ul class="notes">
+        <li>A width is specified for the floated span to ensure it doesn&#39;t
+        fill the width of the containing element (or collapse to zero
+        width).</li>
+
+        <li>A top and bottom margin is generated for floated inline text, these
+        top and bottom margins wouldn&#39;t exist with non-floated inline text.
+        Floated inline text behaves like a block element.</li>
+      </ul>
+
+      <h3>Things to try:</h3>
+
+      <ul class="exercises">
+        <li>Remove the width declaration to see the span text occupy the width
+        of the containing paragraph.</li>
+
+        <li>Change the float value from left to right.</li>
+
+        <li>Add additional inline text elements and float them to the left or
+        right to see the behavior.</li>
+      </ul>
+
+      <h2>Block Elements Floated</h2>
+
+      <p>Floating a block element is similar to floating an inline element,
+      where you will need to provide a width so the element doesn&#39;t occupy
+      the width of the containing element. Let&#39;s look at an example.</p>
+
+      <figure>
+        <a class="jsbin-embed" href=
+        "http://jsbin.com/hasor/2/embed?html,css,output">Floating Block
+        Elements</a><script src="http://static.jsbin.com/js/embed.js">
+</script>
+      </figure>
+
+      <h3>Take Note:</h3>
+
+      <ul class="notes">
+        <li>A width is specified for both floated block elements so they do not
+        fill the width of the containing element.</li>
+
+        <li>Note that both floated paragraphs (i.e. with classes side1 and
+        side2) sit below the paragraphs that precede them. This is because
+        floated elements can never be higher than any block elements that
+        precede them.</li>
+      </ul>
+
+      <h3>Things to try:</h3>
+
+      <ul class="exercises">
+        <li>Change the float values for side1 and side2 classes, so that side1
+        is floated right and side2 is floated left.</li>
+
+        <li>Add additional floated block elements.</li>
+
+        <li>Reorder the block elements in the HTML to see how the ordering
+        affects the layout of floated block elements.</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div id="includeFooter"></div><script src="js/prism.js"
+  data-default-language="markup">
+</script> <script src="js/jquery.js">
+</script> <script src="js/includes.js">
+</script> <script src="js/bootstrap.min.js">
+</script>
+</body>
+</html>

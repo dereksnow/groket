@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>groket - Inline Elements</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="includeNav"></div>
+        <div class="container">
+            <h1 class="text-center">Inline Elements</h1>
+            <h2>The Basics</h2>
+            <p><strong>Inline elements are HTML elements that are laid out
+			horizontally one after the other.</strong> They do not begin on a new line by default. Some commonly used inline elements include anchor, img, span, button, input, label and textarea.</p>
+            <p>Below is a code example containing elements that are inline by default.</p>
+            <figure>
+                <a class="jsbin-embed" href="http://jsbin.com/diduj/2/embed?html,output">Inline Elements</a>
+                <script src="http://static.jsbin.com/js/embed.js"></script>
+            </figure>
+            <h3>Take Note:</h3>
+            <ul class="notes">
+                <li>The width of an inline element is generally determined by its content.</li>
+                <li>An inline element can be contained within a <a href="block_elements.html">block-level element</a>.</li>
+                <li>An inline element in general cannot contain a block-level
+		element.</li>
+                <li>Inline elements can contain other inline elements like the &lt;a&gt; element that is contained within the &lt;strong&gt; element in the above example.</li>
+            </ul>
+            <h3>Things to try:</h3>
+            <ul class="exercises">
+                <li>Resize the output area and notice the behavior of the
+		inline elements. The elements should fill horizontally and
+		wrap when the container is not wide enough for the contents.</li>
+                <li>Modify the HTML code so the &lt;strong&gt; element is
+		within the &lt;a&gt; element. Does the link still work? Is the
+		text still bold? While visually it doesn't seem to make a
+		difference, you should keep in mind what you are trying to add
+		strong importance to - the link or the text for the link.</li>
+            </ul>
+            <h2>The SPAN element</h2>
+            <p><strong>The &lt;span&gt; element is an inline element without any
+			semantics, other than those that you apply with id or class
+			attributes.</strong> It is frequently used to style a group of
+                <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#phrasing-content-2">phrasing elements</a>, but it should not be used when a semantic element (e.g. strong, em, big, small, etc.) would be better suited for the
+                content.</p>
+            <p>The jsbin below uses the span element to style the inline elements with a light blue color.</p>
+            <figure><a class="jsbin-embed" href="http://jsbin.com/wujew/1/embed?html,output">SPAN element</a><script src="http://static.jsbin.com/js/embed.js"></script></figure>
+            <h3>Take Note:</h3>
+            <ul class="notes">
+                <li>The span element doesn't add anything visually by itself.</li>
+                <li>class or id attributes are often added to span elements so that text can be targeted by css or javascript.</li>
+            </ul>
+            <h3>Things to try:</h3>
+            <ul class="exercises">
+                <li>Remove the class attribute from the span to show that the span element doesn't make visual changes by itself.</li>
+                <li>Add additional text and use span elements and css to style some of the text.</li>
+            </ul>
+            <h2>HTML5 and Inline Elements</h2>
+            <p>In HTML5 <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/indices.html#element-content-categories">Element content categories</a> were introduced, which replaced the simple block-level and inline distinction, but the block-level/inline
+                categorization is still used in discussing the default behavior of elements. Mozilla provides a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">listing of block-level elements</a> that also includes HTML5
+                elements that are technically not defined within the block-level/inline categorization.</p>
+            <h2>Big Ideas</h2>
+            <ul class="big-ideas">
+                <li>Inline elements are laid out horizontally one after the other.</li>
+                <li>The width of an inline element is generally determined by
+		its content.</li>
+                <li>Inline elements can contain other inline elements.</li>
+                <li>An inline element, in general, cannot contain a
+		block-level element.
+                <li>The span element is an inline element without any
+		semantics that is used to style phrasing elements.</li>
+            </ul>
+
+        </div>
+    </div>
+    <div id="includeFooter"></div>
+    <script src="js/jquery.js"></script>
+    <script src="js/includes.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
