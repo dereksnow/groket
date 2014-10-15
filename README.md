@@ -1,4 +1,4 @@
 groket
 ======
 
-Web Development learning website. Concepts explained and reinforced using jsbin playgrounds.
+Web Development learning website. HTML and CSS concepts explained and reinforced using jsbin playgrounds.
