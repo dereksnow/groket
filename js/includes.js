@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    $("#includeFooter").load("../footer.html");
-    $("#includeNav").load("../nav.html");
+    $("#includeFooter").load("footer.html");
+    $("#includeNav").load("nav.html");
     $.get("head.html", function(data){
 	    $(data).appendTo("head");
     });
